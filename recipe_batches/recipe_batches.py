@@ -3,7 +3,16 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+    if len(list(dict.values(recipe))) is not len(list(dict.values(ingredients))):
+        return 0
+    total_recipes_completed = None
+    for val in recipe:
+        total = ingredients[val] // recipe[val]
+        if total_recipes_completed is None:
+            total_recipes_completed = total
+        elif total < total_recipes_completed:
+            total_recipes_completed = total
+    return total_recipes_completed
 
 
 if __name__ == '__main__':
